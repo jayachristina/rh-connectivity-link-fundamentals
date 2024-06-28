@@ -425,22 +425,20 @@ spec:
     kind: HTTPRoute
     name: toystore
   limits:
-    "general-user":
+    "alice-limit":
       rates:
 
-      - limit: 10
-        duration: 3
+      - limit: 5
+        duration: 10
         unit: second
-      counters:
-      - metadata.filter_metadata.envoy\.filters\.http\.ext_authz.identity.userid
       when:
       - selector: metadata.filter_metadata.envoy\.filters\.http\.ext_authz.identity.userid
-        operator: neq
-        value: bob
+        operator: eq
+        value: alice
     "bob-limit":
       rates:
       - limit: 2
-        duration: 3
+        duration: 10
         unit: second
       when:
       - selector: metadata.filter_metadata.envoy\.filters\.http\.ext_authz.identity.userid
