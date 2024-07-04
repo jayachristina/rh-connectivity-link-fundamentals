@@ -2,9 +2,7 @@
   description = "Global Allowlist"
 
   # Ignore based on any subset of the file path
-  paths = [
-    '''roles\/ocp4_workload_cloud_architecture_workshop\/templates\/keycloak-realmimport.yaml.j2'''
-  ]
+  
         
   # Ignore based on any subset of the line
   regexes = []
